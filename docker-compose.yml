@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  chatroom.api:
+    image: ${DOCKER_REGISTRY-}chatroomapi
+    environment:
+      - TZ=Asia/Shanghai
+    build:
+      context: .
+      dockerfile: ChatRoom.API/Dockerfile
+    ports:
+      - 44452:80
+      - 44453:443

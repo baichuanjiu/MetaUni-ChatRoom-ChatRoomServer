@@ -1,0 +1,21 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "ChatRoom.API.Protos.ChatRequest";
+
+package ChatRequest;
+
+service SendChatRequest {
+  rpc SendChatRequestSingle (SendChatRequestSingleRequest) returns (GeneralReply);
+}
+
+message SendChatRequestSingleRequest {
+  int32 SenderUUID = 1;
+  int32 TargetUUID = 2;
+  string GreetText = 3;
+  string MessageText = 4; //在Chat页显示的消息预览
+}
+
+message GeneralReply {
+  int32 Code = 1; //状态码为0表示成功，其余均为失败
+  string Message = 2; //相关提示信息
+}
